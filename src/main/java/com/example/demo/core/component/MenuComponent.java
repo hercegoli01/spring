@@ -13,8 +13,8 @@ public class MenuComponent extends HorizontalLayout {
         manufacturerLink.setText("Manufacturers");
 
         Anchor vehicleLink = new Anchor();
-        vehicleLink.setHref("/vehiclemanager");
-        vehicleLink.setText("Vehicles");
+        vehicleLink.setHref("/carmanager");
+        vehicleLink.setText("Cars");
 
         add(manufacturerLink, vehicleLink);
 

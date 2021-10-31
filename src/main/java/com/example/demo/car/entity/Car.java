@@ -63,4 +63,14 @@ public class Car extends CoreEntity {
     public void setProdYear(Double prodYear) {
         this.prodYear = prodYear;
     }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "name='" + name + '\'' +
+                ", manufacturer=" + manufacturer +
+                ", doors=" + doors +
+                ", prodYear=" + prodYear +
+                '}';
+    }
 }

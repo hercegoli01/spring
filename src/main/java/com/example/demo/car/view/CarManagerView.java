@@ -1,5 +1,6 @@
 package com.example.demo.car.view;
 
+import com.example.demo.car.service.CSVService;
 import com.example.demo.core.component.MenuComponent;
 import com.example.demo.manufacturer.entity.Manufacturer;
 import com.example.demo.manufacturer.service.ManufacturerService;
@@ -33,6 +34,9 @@ public class CarManagerView extends VerticalLayout {
     private NumberField doors;
     private NumberField prodYear;
     private Binder<Car> binder;
+
+    @Autowired
+    private CSVService csvService;
 
     @Autowired
     private CarService service;
@@ -92,6 +96,19 @@ public class CarManagerView extends VerticalLayout {
             binder.setBean(selectedVehicle);
             form.setVisible(true);
         });
+        Button excelImport = new Button();
+        excelImport.setText("Import");
+        excelImport.addClickListener(buttonClickEvent -> {
+
+        });
+        Button excelExport = new Button();
+        excelExport.setText("Export");
+        excelExport.addClickListener(buttonClickEvent -> {
+            //TODO valami történjen már
+
+            csvService.load();
+            System.out.println("kurva anyádat");
+        });
         addBtn.setIcon(VaadinIcon.PLUS.create());
         Select<String> selectSort = new Select<>();
         selectSort.setLabel("Sort option");
@@ -134,7 +151,7 @@ public class CarManagerView extends VerticalLayout {
         listButton.addClickListener(event->{
             grid.setItems(service.findAll());
         });
-        buttonBar.add(deleteBtn, addBtn,selectSort,sortBtn,nameField,searchButton,listButton);
+        buttonBar.add(deleteBtn, addBtn, excelImport,excelExport, selectSort,sortBtn,nameField,searchButton,listButton);
         add(buttonBar);
     }
 
