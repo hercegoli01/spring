@@ -105,9 +105,7 @@ public class CarManagerView extends VerticalLayout {
         excelExport.setText("Export");
         excelExport.addClickListener(buttonClickEvent -> {
             //TODO valami történjen már
-
-            csvService.load();
-            System.out.println("kurva anyádat");
+            
         });
         addBtn.setIcon(VaadinIcon.PLUS.create());
         Select<String> selectSort = new Select<>();
